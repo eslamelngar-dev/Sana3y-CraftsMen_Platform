@@ -5,19 +5,16 @@ export interface Craftsman {
   city: string;
   rating: number;
   reviewCount: number;
-  profileImage: string;
   bio: string;
   phone: string;
+  ordersCount: number;
   yearsOfExperience: number;
-  previousWork: {
-    id: string;
-    image: string;
-    title: string;
-    description: string;
-  }[];
+  thumbnail: string;
+  images: string[];
+  joinedAt: string;
 }
 
-export type Profession = 
+export type Profession =
   | "الكل"
   | "نجار"
   | "سباك"
