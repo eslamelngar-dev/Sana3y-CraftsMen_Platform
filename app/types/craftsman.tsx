@@ -7,11 +7,21 @@ export interface Craftsman {
   reviewCount: number;
   bio: string;
   phone: string;
+  whatsapp: string;
   ordersCount: number;
   yearsOfExperience: number;
   thumbnail: string;
   images: string[];
   joinedAt: string;
+}
+
+export interface Review {
+  id: string;
+  craftsmanId: string;
+  author: string;
+  rating: number;
+  comment: string;
+  date: string;
 }
 
 export type Profession =
