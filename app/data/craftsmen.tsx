@@ -1,5 +1,6 @@
+import { Craftsman } from "./../types/craftsman";
 
-export const craftsmen = [
+export const craftsmen: Craftsman[] = [
   {
     id: "1",
     name: "محمد أحمد",
