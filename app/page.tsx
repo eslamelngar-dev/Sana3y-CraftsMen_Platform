@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState } from "react";
 import { Search } from "lucide-react";
 import { craftsmen } from "./data/craftsmen";
@@ -31,44 +31,54 @@ export default function Home() {
       craftsman.profession === selectedProfession;
     const matchesCity =
       selectedCity === "الكل" || craftsman.city === selectedCity;
-
     return matchesSearch && matchesProfession && matchesCity;
   });
 
   return (
-    <div className="min-h-screen bg-gray-50" dir="rtl">
-      <div className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 py-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="md:col-span-2 relative">
-              <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
-              <input
-                type="text"
-                placeholder="ابحث عن صنايعي..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="placeholder:text-muted-foreground border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 pr-10 py-1 text-base outline-none transition-[color,box-shadow] md:text-sm focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50"
-              />
-            </div>
+    <div className="min-h-screen bg-gray-50">
+      <div className="bg-linear-to-br from-orange-500 to-orange-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 py-16 text-center">
+          <h1 className="text-4xl font-bold mb-4">اعثر على أفضل الصنايعية</h1>
+          <p className="text-orange-100 text-lg mb-8">
+            آلاف الصنايعية المحترفين في انتظارك
+          </p>
 
-            <select
-              value={selectedProfession}
-              onChange={(e) =>
-                setSelectedProfession(e.target.value as Profession)
-              }
-              className="border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base outline-none transition-[color,box-shadow] md:text-sm focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50"
-            >
+          <div className="max-w-2xl mx-auto relative">
+            <Search className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <input
+              type="text"
+              placeholder="ابحث عن صنايعي..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full h-12 rounded-xl border-0 bg-white text-gray-800 pr-12 pl-4 text-base outline-none shadow-lg placeholder:text-gray-400"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
+            <div className="flex gap-2 flex-wrap">
               {professions.map((profession) => (
-                <option key={profession} value={profession}>
+                <button
+                  key={profession}
+                  onClick={() => setSelectedProfession(profession)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                    selectedProfession === profession
+                      ? "bg-orange-500 text-white shadow-md"
+                      : "bg-gray-100 text-gray-600 hover:bg-orange-50 hover:text-orange-500"
+                  }`}
+                >
                   {profession}
-                </option>
+                </button>
               ))}
-            </select>
+            </div>
 
             <select
               value={selectedCity}
               onChange={(e) => setSelectedCity(e.target.value)}
-              className="border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base outline-none transition-[color,box-shadow] md:text-sm focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50"
+              className="h-10 rounded-lg border border-gray-200 bg-white px-3 text-sm outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 text-gray-600"
             >
               {cities.map((city) => (
                 <option key={city} value={city}>
@@ -77,40 +87,31 @@ export default function Home() {
               ))}
             </select>
           </div>
-
-          <div className="flex gap-2 mt-4 flex-wrap">
-            {professions.map((profession) => (
-              <button
-                key={profession}
-                onClick={() => setSelectedProfession(profession)}
-                className={`inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:ring-[3px] h-9 px-4 py-2 ${
-                  selectedProfession === profession
-                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                    : "border bg-background text-foreground hover:bg-accent hover:text-accent-foreground"
-                }`}
-              >
-                {profession}
-              </button>
-            ))}
-          </div>
         </div>
       </div>
 
       <main className="max-w-7xl mx-auto px-4 py-8">
-        <div className="mb-4">
-          <p className="text-gray-600">{filteredCraftsmen.length} صنايعي</p>
+        <div className="mb-6">
+          <p className="text-gray-500 text-sm">
+            تم العثور على{" "}
+            <span className="font-bold text-orange-500">
+              {filteredCraftsmen.length}
+            </span>{" "}
+            صنايعي
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredCraftsmen.map((craftsman) => (
             <CraftsmanCard key={craftsman.id} craftsman={craftsman} />
           ))}
         </div>
 
         {filteredCraftsmen.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">لا توجد نتائج</p>
-            <p className="text-gray-400 mt-2">جرب البحث بمعايير أخرى</p>
+          <div className="text-center py-20">
+            <div className="text-6xl mb-4">🔍</div>
+            <p className="text-gray-500 text-lg font-medium">لا توجد نتائج</p>
+            <p className="text-gray-400 mt-2 text-sm">جرب البحث بمعايير أخرى</p>
           </div>
         )}
       </main>
