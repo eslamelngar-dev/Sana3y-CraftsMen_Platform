@@ -8,11 +8,17 @@ export function Navbar() {
   const linkStyle =
     "text-gray-600 hover:text-orange-500 transition-colors text-md font-medium";
 
+  const closeMenu = () => setIsOpen(false);
+
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2">
+          <Link
+            href="/"
+            className="flex items-center gap-2"
+            onClick={closeMenu}
+          >
             <div className="bg-orange-500 p-2 rounded-lg">
               <Wrench className="w-5 h-5 text-white" />
             </div>
@@ -32,12 +38,16 @@ export function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <button className="text-sm font-medium text-gray-600 hover:text-orange-500 transition-colors px-4 py-2 cursor-pointer">
-              تسجيل الدخول
-            </button>
-            <button className="text-sm font-medium bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors cursor-pointer">
-              سجل كصنايعي
-            </button>
+            <Link href={"/login"}>
+              <button className="text-sm font-medium text-gray-600 hover:text-orange-500 transition-colors px-4 py-2 cursor-pointer">
+                تسجيل الدخول
+              </button>
+            </Link>
+            <Link href={"/register"}>
+              <button className="text-sm font-medium bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors cursor-pointer">
+                سجل كصنايعي
+              </button>
+            </Link>
           </div>
 
           <button
@@ -50,22 +60,34 @@ export function Navbar() {
 
         {isOpen && (
           <div className="md:hidden py-4 border-t flex flex-col gap-3">
-            <Link href="/" className={linkStyle + " py-2"}>
+            <Link href="/" className={linkStyle + " py-2"} onClick={closeMenu}>
               الرئيسية
             </Link>
-            <Link href="/#professions" className={linkStyle + " py-2"}>
+            <Link
+              href="/#professions"
+              className={linkStyle + " py-2"}
+              onClick={closeMenu}
+            >
               الحرف
             </Link>
-            <Link href="/#about" className={linkStyle + " py-2"}>
+            <Link
+              href="/#about"
+              className={linkStyle + " py-2"}
+              onClick={closeMenu}
+            >
               من نحن
             </Link>
             <div className="flex flex-col gap-2 pt-2 border-t">
-              <button className="text-sm font-medium text-gray-600 hover:text-orange-500 py-2 cursor-pointer">
-                تسجيل الدخول
-              </button>
-              <button className="text-sm font-medium bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 cursor-pointer">
-                سجل كصنايعي
-              </button>
+              <Link href={"/login"}>
+                <button className="text-sm font-medium text-gray-600 hover:text-orange-500 py-2 cursor-pointer">
+                  تسجيل الدخول
+                </button>
+              </Link>
+              <Link href={"/register"}>
+                <button className="text-sm font-medium bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 cursor-pointer">
+                  سجل كصنايعي
+                </button>
+              </Link>
             </div>
           </div>
         )}

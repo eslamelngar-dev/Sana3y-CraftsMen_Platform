@@ -10,7 +10,7 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: "أوستاذ - منصة الصنايعية",
+  title: "معلم - منصة الصنايعية",
   description: "اعثر على أفضل الصنايعية في منطقتك",
 };
 
@@ -22,9 +22,9 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <body className={`${cairo.variable} font-cairo antialiased`}>
-        <Navbar/>
+        <Navbar />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

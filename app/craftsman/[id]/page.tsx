@@ -85,7 +85,9 @@ export default function CraftsmanPage() {
                 <h2 className="text-lg font-bold text-gray-800 mb-3">
                   نبذة عني
                 </h2>
-                <p className="text-gray-600 leading-relaxed">{craftsman.bio}</p>
+                <p className="text-gray-600 leading-relaxed">
+                  {craftsman.bio}
+                </p>
               </div>
             </div>
 
@@ -100,7 +102,9 @@ export default function CraftsmanPage() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
               <div className="p-6 border-b border-gray-100">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-bold text-gray-800">التقييمات</h2>
+                  <h2 className="text-lg font-bold text-gray-800">
+                    التقييمات
+                  </h2>
                   <div className="flex items-center gap-1">
                     <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                     <span className="font-bold text-gray-800">
@@ -163,7 +167,9 @@ export default function CraftsmanPage() {
 
           <div className="space-y-6">
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sticky top-24">
-              <h2 className="text-lg font-bold text-gray-800 mb-6">إحصائيات</h2>
+              <h2 className="text-lg font-bold text-gray-800 mb-6">
+                إحصائيات
+              </h2>
 
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="bg-orange-50 rounded-xl p-4 text-center">
@@ -209,7 +215,7 @@ export default function CraftsmanPage() {
 
               <div className="space-y-3">
                 <a
-                  href=""
+                  href={`https://wa.me/${craftsman.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 rounded-xl transition-colors"
@@ -219,7 +225,7 @@ export default function CraftsmanPage() {
                 </a>
 
                 <a
-                  href=""
+                  href={`tel:${craftsman.phone}`}
                   className="flex items-center justify-center gap-2 w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-xl transition-colors"
                 >
                   <Phone className="w-5 h-5" />

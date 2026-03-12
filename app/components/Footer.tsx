@@ -14,7 +14,7 @@ export function Footer() {
               <span className="text-xl font-bold text-white">معلم</span>
             </div>
             <p className="text-sm text-gray-400 leading-relaxed mb-4">
-              منصة أوستاذ تربط بين أصحاب الأعمال والصنايعية المحترفين في جميع
+              منصة معلم تربط بين أصحاب الأعمال والصنايعية المحترفين في جميع
               أنحاء مصر. نضمن لك أفضل جودة وأسرع خدمة.
             </p>
             <div className="flex flex-col gap-2">
@@ -36,13 +36,22 @@ export function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">روابط سريعة</h3>
             <div className="flex flex-col gap-2">
-              <Link href="/" className="text-sm hover:text-orange-500 transition-colors">
+              <Link
+                href="/"
+                className="text-sm hover:text-orange-500 transition-colors"
+              >
                 الرئيسية
               </Link>
-              <Link href="/#professions" className="text-sm hover:text-orange-500 transition-colors">
+              <Link
+                href="/#professions"
+                className="text-sm hover:text-orange-500 transition-colors"
+              >
                 الحرف
               </Link>
-              <Link href="/#about" className="text-sm hover:text-orange-500 transition-colors">
+              <Link
+                href="/#about"
+                className="text-sm hover:text-orange-500 transition-colors"
+              >
                 من نحن
               </Link>
             </div>
@@ -52,7 +61,10 @@ export function Footer() {
             <h3 className="text-white font-semibold mb-4">الحرف</h3>
             <div className="flex flex-col gap-2">
               {["نجار", "سباك", "كهربائي", "حداد", "نقاش", "بناء"].map((p) => (
-                <span key={p} className="text-sm hover:text-orange-500 transition-colors cursor-pointer">
+                <span
+                  key={p}
+                  className="text-sm hover:text-orange-500 transition-colors cursor-pointer"
+                >
                   {p}
                 </span>
               ))}
@@ -65,10 +77,16 @@ export function Footer() {
             © 2025 معلم. جميع الحقوق محفوظة.
           </p>
           <div className="flex items-center gap-4">
-            <Link href="#" className="text-sm text-gray-500 hover:text-orange-500 transition-colors">
+            <Link
+              href="#"
+              className="text-sm text-gray-500 hover:text-orange-500 transition-colors"
+            >
               سياسة الخصوصية
             </Link>
-            <Link href="#" className="text-sm text-gray-500 hover:text-orange-500 transition-colors">
+            <Link
+              href="#"
+              className="text-sm text-gray-500 hover:text-orange-500 transition-colors"
+            >
               الشروط والأحكام
             </Link>
           </div>
